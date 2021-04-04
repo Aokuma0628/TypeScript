@@ -67,7 +67,8 @@
     /* Advanced Options */
     "skipLibCheck": true,                           /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true ,       /* Disallow inconsistently-cased references to the same file. */
-    "outDir": "dist"
+    "outDir": "dist",
+    //"declaration": ture                           /* 通常の開発では使用せずにライブラリの開発などで使用する*/ 
   },
   "include": [
     "src/**/*"
