@@ -10,8 +10,8 @@ function type() {
     obj2['foo'] = 'val';
     //obj2['bar'] = 'val';
     console.log(obj2);
-    //key = {foo:'aaa', bar:'bbb', baz:'ccc'};
     var k = 'foo';
+    k = 'bar';
     console.log(k);
 }
 type();
