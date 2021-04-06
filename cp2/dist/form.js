@@ -50,3 +50,21 @@ function error(msg) {
 var obj;
 obj = { 'abc': 123 };
 console.log(obj);
+var kimera = {
+    tail: "aaa",
+    wing: "bbb",
+    bark: function () { console.log("bark"); },
+    fly: function () { console.log("fly"); }
+};
+console.log(kimera, kimera.fly());
+// Uinion Type
+var value;
+value = false;
+value = 1;
+value = '2';
+var unitarray;
+unitarray = [0, '12'];
+console.log(unitarray);
+// Literal Type
+var myName;
+var zero;

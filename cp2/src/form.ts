@@ -42,7 +42,7 @@ console.log(maybe[0]);
 
 // void 
 function log(msg: string): void {
-    console.log(msg);
+	console.log(msg);
 }
 log('abcdef');
 
@@ -53,7 +53,7 @@ console.log(nul, undef);
 
 //never
 function error(msg: string): never {
-    throw new Error(msg);
+	throw new Error(msg);
 }
 //error('hello');
 
@@ -61,3 +61,39 @@ function error(msg: string): never {
 let obj: object;
 obj = {'abc': 123};
 console.log(obj);
+
+// Intersection Type
+type Tail = string;
+type Wing = string;
+type Dog = {
+	tail: Tail,
+	bark: () => void
+}
+type Bird = {
+	wing: Wing,
+	fly: () => void
+}
+type Kimera = Dog & Bird;
+let kimera: Kimera = {
+	tail: "aaa",
+	wing: "bbb",
+	bark: () => {console.log("bark")},
+	fly: () => {console.log("fly")}
+}
+console.log(kimera, kimera.fly());
+
+// Uinion Type
+let value: boolean | number | string;
+value = false;
+value = 1;
+value = '2'
+
+let unitarray: (number | string)[];
+unitarray = [0, '12'];
+console.log(unitarray);
+
+// Literal Type
+let myName: 'Taro' | 'Jiro';
+let zero: 0;
+
+
