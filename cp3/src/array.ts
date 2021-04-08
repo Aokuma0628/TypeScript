@@ -24,3 +24,5 @@ t1.push(true);
 //t1.push(1);	error
 t2.push(10);
 //t2.push('ccc');	error
+
+
