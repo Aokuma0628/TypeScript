@@ -25,9 +25,13 @@ Promise.resolve(123)
 })
     .then((res) => {
     console.log(res);
-    return Promise.resolve(789);
+    return Promise.resolve('aaa');
 })
     .then((res) => {
     console.log(res);
-    return 123;
+    return false;
+})
+    .then((res) => {
+    console.log(res);
+    return {};
 });

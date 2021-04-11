@@ -13,4 +13,4 @@ const obj3 = {
 }
 
 let obj4: typeof obj3;
-obj4['a'] = 'string';
+//obj4['a'] = 'string';
