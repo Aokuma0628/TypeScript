@@ -56,6 +56,34 @@ function cp41() {
     console.log(x.a());
     let a = x.a;
     console.log(a());
+    //ジェネレータ
+    function* createFibonaccGenerator() {
+        let a = 0;
+        let b = 1;
+        while (true) {
+            yield a;
+            [a, b] = [b, a + b];
+        }
+    }
+    let fi = createFibonaccGenerator();
+    let i = 0;
+    while (i < 10) {
+        console.log(fi.next());
+        i++;
+    }
+    //イテレーター(よくわからん)
+    let numbers = {
+        *[Symbol.iterator]() {
+            for (let n = 1; n < 10; n++) {
+                yield n;
+            }
+        }
+    };
+    console.log(numbers);
+    let log3 = (message, id = 'Not signed in') => {
+        console.log(message, id);
+    };
+    log3('message', 'id=1');
 }
 cp41();
 //# sourceMappingURL=4-1.js.map
