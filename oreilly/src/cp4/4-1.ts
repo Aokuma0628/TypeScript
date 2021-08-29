@@ -176,20 +176,157 @@ class cp4 {
 		console.log(f.next());
 		console.log(f.next());
 	}
+
+	// イテレータ
+	cp4_6() {
+		let f = {
+			*[Symbol.iterator]() {
+				for (let i = 1; i <= 10; i++) {
+					yield i;
+				}
+			}
+		}
+		for (let a of f) {
+			console.log(a);
+		}
+		let b = [...f];
+		console.log(b);
+	}
+
+	//　呼び出しシグネチャ
+	cp4_7() {
+		type Log = (msg: string, id?: string) => void;
+		let log: Log = (
+			msg,
+			id = 'Not found id'
+		) => {
+			let time = new Date();
+			console.log(time, msg, id);
+		};
+
+		log('hello', 'abc123');
+
+	}
+
+	// オーバーロード
+	cp4_9() {
+		type Reserve = {
+			(from: Date, to: Date, dest: string): void;
+			(from: Date, dest: string): void;
+		}
+
+		let from = new Date();
+		let tmp = new Date();
+		let to = new Date(tmp.setDate(31));
+		let dest = 'Tokyo';
+
+		let reserve: Reserve = (
+			from: Date, 
+			toOrDest: Date | string,
+			dest?: string
+		) => {
+			console.log(from, toOrDest, dest);
+		}
+		reserve(from, to, dest);
+	}
+
+	// ジェネリック型 ← 汎用的なソースとなるため、使用できる場合はできるだけ使うべき
+	cp4_10() {
+		type Filter = {
+			<T>(array: T[], f: (item: T) => boolean): T[];
+		}
+
+		let filter: Filter = (array, f) => {
+			let result = [];
+			for (let i = 0; i < array.length; i++) {
+				let item = array[i];
+				if (f(item)) {
+					result.push(item)
+				}
+			}
+			return result;
+		}
+
+		console.log(filter([1,2,3], _ => _ > 2));
+		console.log(filter(['a', 'b', 'C'], _ => _ !== 'b'));
+	}
+
+	p1() {
+		//両方
+	}
+
+	p2() {
+		//?
+	}
+
+	p3() {
+		type Reserve = (dest: string) => void;
+
+		let dest = 'Tokyo';
+
+		let reserve: Reserve = (
+			dest
+		) => {
+			console.log(dest);
+		}
+		reserve(dest);
+	}
+
+	p5() {
+		function is<T>(a:T, b:T): boolean {
+			if (a === b) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		console.log(is('string', 'aaa'));
+		console.log(is(true, false));
+		console.log(is(42, 42));
+		//console.log(is(42, 'aaa'));
+
+	}
 	
 }
 
-printc('4-1');
 const c4 = new cp4();
-c4.cp4_1('hello');
-c4.cp4_1('good morning', 'abc');
 
-printc('4-2');
-c4.cp4_2(1,2,3);
-c4.cp4_2(1, 2, 3, 4);
+// printc('4-1');
+// c4.cp4_1('hello');
+// c4.cp4_1('good morning', 'abc');
 
-printc('4-4');
-c4.cp4_4();
+// printc('4-2');
+// c4.cp4_2(1,2,3);
+// c4.cp4_2(1, 2, 3, 4);
 
-printc('4-5');
-c4.cp4_5();
+// printc('4-4');
+// c4.cp4_4();
+
+// printc('4-5');
+// c4.cp4_5();
+
+// printc('4-6');
+// c4.cp4_6();
+
+// printc('4-7');
+// c4.cp4_7();
+
+// printc('4-9');
+// c4.cp4_9();
+
+// printc('4-10');
+// c4.cp4_10();
+
+printc('p1');
+c4.p1();
+
+printc('p2');
+c4.p2();
+
+printc('p3');
+c4.p3();
+
+printc('p5');
+c4.p5();
