@@ -178,22 +178,22 @@ class cp4 {
 	}
 
 	// イテレータ
-	cp4_6() {
-		let f = {
-			*[Symbol.iterator]() {
-				for (let i = 1; i <= 10; i++) {
-					yield i;
-				}
-			}
-		}
-		for (let a of f) {
-			console.log(a);
-		}
-		let b = [...f];
-		console.log(b);
-	}
+	// cp4_6() {
+	// 	let f = {
+	// 		*[Symbol.iterator]() {
+	// 			for (let i = 1; i <= 10; i++) {
+	// 				yield i;
+	// 			}
+	// 		}
+	// 	}
+	// 	for (let a of f) {
+	// 		console.log(a);
+	// 	}
+	// 	let b = [...f];
+	// 	console.log(b);
+	// }
 
-	//　呼び出しシグネチャ
+	// 呼び出しシグネチャ
 	cp4_7() {
 		type Log = (msg: string, id?: string) => void;
 		let log: Log = (

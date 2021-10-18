@@ -10,4 +10,10 @@ npx tsc -p src/cp4
 
 [2021/08/30]
 ・12章
+・gitignoreの整理(git rm -r --cached dist)
 
+[2021/10/17]
+・１２章
+
+[2021/10/18]
+・12章 typescriptのビルド・実行

@@ -1,5 +1,64 @@
 "use strict";
 // function cp41 () {
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 // function add(a:number, b:number) {
 // 	return a + b;
 // }
@@ -94,117 +153,161 @@
 // cp41();
 // ２週目
 function printc(num) {
-    console.log(`\n######### Question.${num} ##########`);
+    console.log("\n######### Question." + num + " ##########");
 }
-class cp4 {
-    constructor() {
+var cp4 = /** @class */ (function () {
+    function cp4() {
         // do nothing
     }
     //デフォルトパラメータ
-    cp4_1(message, usrId = 'Not sighn in') {
-        let time = new Date().toISOString();
+    cp4.prototype.cp4_1 = function (message, usrId) {
+        if (usrId === void 0) { usrId = 'Not sighn in'; }
+        var time = new Date().toISOString();
         console.log(time, message, usrId);
-    }
+    };
     //レストパラメータ
-    cp4_2(...num) {
-        let sum = num.reduce((total, n) => total + n, 0);
+    cp4.prototype.cp4_2 = function () {
+        var num = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            num[_i] = arguments[_i];
+        }
+        var sum = num.reduce(function (total, n) { return total + n; }, 0);
         console.log(sum);
-    }
+    };
     //this
     // method.call(thisArg, [, arg1 [, arg2, ...]]);
     // methodは任意の関数やインスタンスが指定可能
     // 第一引数にはmethodのthisとしたいオブジェクト(参照先)を指定
     // 第二引数以降にはmethodに渡す引数
-    cp4_4() {
-        let x = { a() { return this; } };
+    cp4.prototype.cp4_4 = function () {
+        var x = { a: function () { return this; } };
         x.a();
-        let x2 = function () {
-            return `${this.getMonth() + 1} / ${this.getDate()} / ${this.getFullYear()}`;
+        var x2 = function () {
+            return this.getMonth() + 1 + " / " + this.getDate() + " / " + this.getFullYear();
         };
         //x2();
         console.log(x2.call(new Date));
-    }
+    };
     // ジェネレータ
-    cp4_5() {
-        function* createFunc() {
-            let a = 0;
-            let b = 1;
-            while (true) {
-                yield a;
-                [a, b] = [b, a + b];
-            }
-        }
-        let f = createFunc();
-        console.log(f.next());
-        console.log(f.next());
-        console.log(f.next());
-        console.log(f.next());
-        console.log(f.next());
-        console.log(f.next());
-    }
-    // イテレータ
-    cp4_6() {
-        let f = {
-            *[Symbol.iterator]() {
-                for (let i = 1; i <= 10; i++) {
-                    yield i;
+    cp4.prototype.cp4_5 = function () {
+        function createFunc() {
+            var a, b;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        a = 0;
+                        b = 1;
+                        _b.label = 1;
+                    case 1:
+                        if (!true) return [3 /*break*/, 3];
+                        return [4 /*yield*/, a];
+                    case 2:
+                        _b.sent();
+                        _a = __read([b, a + b], 2), a = _a[0], b = _a[1];
+                        return [3 /*break*/, 1];
+                    case 3: return [2 /*return*/];
                 }
-            }
-        };
-        for (let a of f) {
-            console.log(a);
+            });
         }
-        let b = [...f];
+        var f = createFunc();
+        console.log(f.next());
+        console.log(f.next());
+        console.log(f.next());
+        console.log(f.next());
+        console.log(f.next());
+        console.log(f.next());
+    };
+    // イテレータ
+    cp4.prototype.cp4_6 = function () {
+        var _a, e_1, _b;
+        var f = (_a = {},
+            _a[Symbol.iterator] = function () {
+                var i;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            i = 1;
+                            _a.label = 1;
+                        case 1:
+                            if (!(i <= 10)) return [3 /*break*/, 4];
+                            return [4 /*yield*/, i];
+                        case 2:
+                            _a.sent();
+                            _a.label = 3;
+                        case 3:
+                            i++;
+                            return [3 /*break*/, 1];
+                        case 4: return [2 /*return*/];
+                    }
+                });
+            },
+            _a);
+        try {
+            for (var f_1 = __values(f), f_1_1 = f_1.next(); !f_1_1.done; f_1_1 = f_1.next()) {
+                var a = f_1_1.value;
+                console.log(a);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (f_1_1 && !f_1_1.done && (_b = f_1.return)) _b.call(f_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        var b = __spreadArray([], __read(f));
         console.log(b);
-    }
+    };
     //　呼び出しシグネチャ
-    cp4_7() {
-        let log = (msg, id = 'Not found id') => {
-            let time = new Date();
+    cp4.prototype.cp4_7 = function () {
+        var log = function (msg, id) {
+            if (id === void 0) { id = 'Not found id'; }
+            var time = new Date();
             console.log(time, msg, id);
         };
         log('hello', 'abc123');
-    }
+    };
     // オーバーロード
-    cp4_9() {
-        let from = new Date();
-        let tmp = new Date();
-        let to = new Date(tmp.setDate(31));
-        let dest = 'Tokyo';
-        let reserve = (from, toOrDest, dest) => {
+    cp4.prototype.cp4_9 = function () {
+        var from = new Date();
+        var tmp = new Date();
+        var to = new Date(tmp.setDate(31));
+        var dest = 'Tokyo';
+        var reserve = function (from, toOrDest, dest) {
             console.log(from, toOrDest, dest);
         };
         reserve(from, to, dest);
-    }
+    };
     // ジェネリック型 ← 汎用的なソースとなるため、使用できる場合はできるだけ使うべき
-    cp4_10() {
-        let filter = (array, f) => {
-            let result = [];
-            for (let i = 0; i < array.length; i++) {
-                let item = array[i];
+    cp4.prototype.cp4_10 = function () {
+        var filter = function (array, f) {
+            var result = [];
+            for (var i = 0; i < array.length; i++) {
+                var item = array[i];
                 if (f(item)) {
                     result.push(item);
                 }
             }
             return result;
         };
-        console.log(filter([1, 2, 3], _ => _ > 2));
-        console.log(filter(['a', 'b', 'C'], _ => _ !== 'b'));
-    }
-    p1() {
+        console.log(filter([1, 2, 3], function (_) { return _ > 2; }));
+        console.log(filter(['a', 'b', 'C'], function (_) { return _ !== 'b'; }));
+    };
+    cp4.prototype.p1 = function () {
         //両方
-    }
-    p2() {
+    };
+    cp4.prototype.p2 = function () {
         //?
-    }
-    p3() {
-        let dest = 'Tokyo';
-        let reserve = (dest) => {
+    };
+    cp4.prototype.p3 = function () {
+        var dest = 'Tokyo';
+        var reserve = function (dest) {
             console.log(dest);
         };
         reserve(dest);
-    }
-    p5() {
+    };
+    cp4.prototype.p5 = function () {
         function is(a, b) {
             if (a === b) {
                 return true;
@@ -217,9 +320,10 @@ class cp4 {
         console.log(is(true, false));
         console.log(is(42, 42));
         //console.log(is(42, 'aaa'));
-    }
-}
-const c4 = new cp4();
+    };
+    return cp4;
+}());
+var c4 = new cp4();
 // printc('4-1');
 // c4.cp4_1('hello');
 // c4.cp4_1('good morning', 'abc');
