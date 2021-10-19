@@ -27,38 +27,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __values = (this && this.__values) || function(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-};
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
 // function add(a:number, b:number) {
 // 	return a + b;
 // }
@@ -204,7 +172,7 @@ var cp4 = /** @class */ (function () {
                         return [4 /*yield*/, a];
                     case 2:
                         _b.sent();
-                        _a = __read([b, a + b], 2), a = _a[0], b = _a[1];
+                        _a = [b, a + b], a = _a[0], b = _a[1];
                         return [3 /*break*/, 1];
                     case 3: return [2 /*return*/];
                 }
@@ -219,47 +187,21 @@ var cp4 = /** @class */ (function () {
         console.log(f.next());
     };
     // イテレータ
-    cp4.prototype.cp4_6 = function () {
-        var _a, e_1, _b;
-        var f = (_a = {},
-            _a[Symbol.iterator] = function () {
-                var i;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            i = 1;
-                            _a.label = 1;
-                        case 1:
-                            if (!(i <= 10)) return [3 /*break*/, 4];
-                            return [4 /*yield*/, i];
-                        case 2:
-                            _a.sent();
-                            _a.label = 3;
-                        case 3:
-                            i++;
-                            return [3 /*break*/, 1];
-                        case 4: return [2 /*return*/];
-                    }
-                });
-            },
-            _a);
-        try {
-            for (var f_1 = __values(f), f_1_1 = f_1.next(); !f_1_1.done; f_1_1 = f_1.next()) {
-                var a = f_1_1.value;
-                console.log(a);
-            }
-        }
-        catch (e_1_1) { e_1 = { error: e_1_1 }; }
-        finally {
-            try {
-                if (f_1_1 && !f_1_1.done && (_b = f_1.return)) _b.call(f_1);
-            }
-            finally { if (e_1) throw e_1.error; }
-        }
-        var b = __spreadArray([], __read(f));
-        console.log(b);
-    };
-    //　呼び出しシグネチャ
+    // cp4_6() {
+    // 	let f = {
+    // 		*[Symbol.iterator]() {
+    // 			for (let i = 1; i <= 10; i++) {
+    // 				yield i;
+    // 			}
+    // 		}
+    // 	}
+    // 	for (let a of f) {
+    // 		console.log(a);
+    // 	}
+    // 	let b = [...f];
+    // 	console.log(b);
+    // }
+    // 呼び出しシグネチャ
     cp4.prototype.cp4_7 = function () {
         var log = function (msg, id) {
             if (id === void 0) { id = 'Not found id'; }
